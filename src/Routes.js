@@ -6,6 +6,7 @@ import ShopDetail from "./Pages/Shop/ShopDetail/ShopDetail";
 import Login from "./Components/Nav/Login/Login";
 import NewAccount from "./Pages/NewAccount/NewAccount";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
+import Nav from "./Components/Nav/Nav";
 
 class Routes extends React.Component {
   render() {
@@ -23,6 +24,7 @@ class Routes extends React.Component {
             path="/shop/shop-detail/:product"
             component={ShopDetail}
           />
+          <Route exact path="/nav" component={Nav} />
         </Switch>
       </Router>
     );
