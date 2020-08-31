@@ -58,8 +58,8 @@ function Nav() {
             </li>
             {navCategory.map((el, idx) => {
               return (
-                <li>
-                  <span key={idx}>{el}</span>
+                <li key={idx}>
+                  <span>{el}</span>
                 </li>
               );
             })}

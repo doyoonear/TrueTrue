@@ -1,0 +1,83 @@
+{
+  "icons": [
+    {
+      "tool": "Photoshop",
+      "url": "//cdn.shopify.com/s/files/1/0989/0116/files/PS_Collection_2x_34ba0c0c-a178-4ce9-b5c5-7abd3537106d.png?v=1548166020"
+    },
+    {
+      "tool": "Illustrator",
+      "url": "//cdn.shopify.com/s/files/1/0989/0116/files/Ai_Collection_2x_ec4df3ca-4e06-410d-9671-b86a88d91d0b.png?v=1548166054"
+    },
+    {
+      "tool": "Procreate",
+      "url": "//cdn.shopify.com/s/files/1/0989/0116/files/Procreate_Collection_2x_2dc04f2c-756b-4502-bfe3-279cb59b5ded.png?v=1548166085"
+    },
+    {
+      "tool": "Affinity",
+      "url": "//cdn.shopify.com/s/files/1/0989/0116/files/Affinity_Collection_2x_5d0c345b-51d4-43fb-9b87-75a555b9e67b.png?v=1593716724"
+    },
+    {
+      "tool": "Clip Studio",
+      "url": "//cdn.shopify.com/s/files/1/0989/0116/files/CSP_Collection_2x_b22cc0e0-c6f3-401f-a428-45b609df161a.png?v=1593716750"
+    },
+    {
+      "tool": "Bundles",
+      "url": "//cdn.shopify.com/s/files/1/0989/0116/files/Bundles_Collection_2x_9ccb691c-aa18-48c2-bfee-555b9b3c6e35.png?v=1548166135"
+    }
+  ],
+  "bundle": {
+    "category_title": ["SAVE BIG ON BUNDLES", "ALL BUNDLES"],
+    "list": [
+      {
+        "id": 5,
+        "name": "Build Your Own Bundle",
+        "sub_name": "Save 30% Off 4 Or More Products",
+        "image": "https://cdn.shopify.com/s/files/1/0989/0116/products/TGTS_FINAL_ANIMATION_PAUSE02__1500px-16col_d997d95e-0ba3-46a0-8430-6a232e72e08c_915X610.gif?v=1594432780",
+        "editor": "Any App",
+        "price": [0.0, 0.0],
+        "is_discounted": true
+      },
+      {
+        "id": 8,
+        "name": "The Complete Collection",
+        "sub_name": "Every TGTS product",
+        "image": "https://cdn.shopify.com/s/files/1/0989/0116/products/Complete-Collection-2019-1_7316eada-2b43-4ad5-8c5b-e48c269c5ae7_915X610.png?v=1582856652",
+        "editor": "All Apps",
+        "price": [395.0, 625.0],
+        "is_discounted": true
+      },
+      {
+        "id": 6,
+        "name": "Everything Bundle",
+        "sub_name": "Save 40% Off Every Product",
+        "image": "https://cdn.shopify.com/s/files/1/0989/0116/products/Everything-Bundle-1_bea9570d-9aed-4986-9923-ca92af24365e_915X610.png?v=1594432847",
+        "editor": "Any App",
+        "price": [282.0, 471.0],
+        "is_discounted": true
+      }
+    ]
+  },
+  "blog": {
+    "category_title": ["FROM THE BLOG", "ALL POSTS"],
+    "list": [
+      {
+        "id": 1,
+        "image": "https://cdn.shopify.com/s/files/1/0989/0116/articles/MKM-final-animation-Thumb_900x.gif?v=1590792576",
+        "title": "Animating Texture With Mary Kate McDevitt",
+        "content": "Philadelphia based letterer and author, Mary Kate McDevitt walks us through her process for creating animated hand-lettering with texture in Adobe ..."
+      },
+      {
+        "id": 2,
+        "image": "https://cdn.shopify.com/s/files/1/0989/0116/articles/Pedro-Thumb_900x.png?v=1590787410",
+        "title": "Tutorial: Cosmic Texture Effects with Pedro Correa",
+        "content": "In this tutorial, Brazillian illustrator Pedro Correa takes us on a journey deep into his psychedelic cosmos to create one of the surreal, cosmic s..."
+      },
+      {
+        "id": 3,
+        "image": "https://cdn.shopify.com/s/files/1/0989/0116/articles/01-Thumb-CMPTRULES_900x.png?v=1590456978",
+        "title": "Deus Quarantee Wrap",
+        "content": "We’re long-time fans of the art-driven moto/surf/cycle/records juggernaut that is Deus Ex Machina. The creative team at Deus have been keeping app..."
+      }
+    ]
+  }
+}

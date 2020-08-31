@@ -1,0 +1,76 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "The Rusty Nib for Photoshop",
+      "sub_name": "Distressed Inking Brushes",
+      "image": "https://cdn.shopify.com/s/files/1/0989/0116/products/The-Rusty-Nib-Photoshop-1_915X610.png?v=1564455845",
+      "editor": "Photoshop",
+      "price": [19.0, 19.0],
+      "is_discounted": false
+    },
+    {
+      "id": 2,
+      "name": "Stipple Studio for Photoshop",
+      "sub_name": "69 Stipple Brushes",
+      "image": "https://cdn.shopify.com/s/files/1/0989/0116/products/Stipple-Studio-1_915X610.png?v=1582771269",
+      "editor": "Photoshop",
+      "price": [19.0, 19.0],
+      "is_discounted": false
+    },
+    {
+      "id": 3,
+      "name": "Debaser for Photoshop",
+      "sub_name": "Low-fi Comic Coloring Kit",
+      "image": "https://cdn.shopify.com/s/files/1/0989/0116/products/Debaser-Cover01-b_915X610.png?v=1552869078",
+      "editor": "Photoshop",
+      "price": [34.0, 34.0],
+      "is_discounted": false
+    },
+    {
+      "id": 4,
+      "name": "Halftone Zine Machine",
+      "sub_name": "Image Processing Kit",
+      "image": "https://cdn.shopify.com/s/files/1/0989/0116/products/HalftoneZine-2019-01_915X610.png?v=1552703872",
+      "editor": "Photoshop",
+      "price": [19.0, 19.0],
+      "is_discounted": false
+    },
+    {
+      "id": 5,
+      "name": "Build Your Own Bundle",
+      "sub_name": "Save 30% Off 4 Or More Products",
+      "image": "https://cdn.shopify.com/s/files/1/0989/0116/products/TGTS_FINAL_ANIMATION_PAUSE02__1500px-16col_d997d95e-0ba3-46a0-8430-6a232e72e08c_915X610.gif?v=1594432780",
+      "editor": "Any App",
+      "price": [0.0, 0.0],
+      "is_discounted": true
+    },
+    {
+      "id": 6,
+      "name": "Everything Bundle",
+      "sub_name": "Save 40% Off Every Product",
+      "image": "https://cdn.shopify.com/s/files/1/0989/0116/products/Everything-Bundle-1_bea9570d-9aed-4986-9923-ca92af24365e_915X610.png?v=1594432847",
+      "editor": "Any App",
+      "price": [282.0, 471.0],
+      "is_discounted": true
+    },
+    {
+      "id": 7,
+      "name": "The Ultimate Texture Brush Toolkit",
+      "sub_name": "Over 640 Texture Brushes",
+      "image": "https://cdn.shopify.com/s/files/1/0989/0116/products/Ultimate-Brush-Toolbox-1500-2020-2_915X610.png?v=1595380733",
+      "editor": "Photoshop",
+      "price": [69.0, 107.0],
+      "is_discounted": true
+    },
+    {
+      "id": 8,
+      "name": "The Complete Collection",
+      "sub_name": "Every TGTS product",
+      "image": "https://cdn.shopify.com/s/files/1/0989/0116/products/Complete-Collection-2019-1_7316eada-2b43-4ad5-8c5b-e48c269c5ae7_915X610.png?v=1582856652",
+      "editor": "All Apps",
+      "price": [395.0, 625.0],
+      "is_discounted": true
+    }
+  ]
+}
