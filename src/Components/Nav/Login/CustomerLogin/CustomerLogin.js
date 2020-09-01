@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import GlobalStyles, {
   MoveCenter,
-  Font,
-  Theme,
+  font,
+  theme,
 } from "../../../../Styles/GlobalStyles";
 import KaKaoLogin from "react-kakao-login";
 
@@ -108,7 +108,7 @@ export default CustomerLogin;
 const TextCenter = styled.div`
   width: 100%;
   margin-bottom: 42px;
-  ${Font("", 24.04, 600)};
+  ${font("", 24.04, 600)};
   color: #a49c99;
   text-align: center;
 `;
@@ -146,7 +146,7 @@ const Button = styled.button`
   background-color: #a49c99;
 
   &:hover {
-    background-color: ${Theme.darkBeige};
+    background-color: ${theme.darkBeige};
   }
 `;
 
@@ -189,7 +189,7 @@ const Span = styled.span`
     color: #a49c99;
 
     &:hover {
-      color: ${Theme.darkBeige};
+      color: ${theme.darkBeige};
     }
   }
 `;

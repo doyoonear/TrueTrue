@@ -4,8 +4,8 @@ import { Redirect } from "react-router";
 import styled from "styled-components";
 import GlobalStyles, {
   MoveCenter,
-  Font,
-  Theme,
+  font,
+  theme,
 } from "../../Styles/GlobalStyles.js";
 import PasswordValCheck from "../NewAccount/PasswordValCheck/PasswordValCheck";
 
@@ -78,9 +78,9 @@ const Title = styled.div`
   justify-content: center;
   padding-bottom: 9px;
   margin-top: 82px;
-  ${Font("Inconsolata", 28, 600)};
-  color: ${Theme.mediumGrey};
-  border-bottom: 1px solid ${Theme.mediumGrey};
+  ${font("Inconsolata", 28, 600)};
+  color: ${theme.mediumGrey};
+  border-bottom: 1px solid ${theme.mediumGrey};
 `;
 
 const SubTitle = styled.div`
@@ -88,9 +88,9 @@ const SubTitle = styled.div`
   justify-content: center;
   padding-bottom: 9px;
   margin-top: 82px;
-  ${Font("Inconsolata", 16, 600)};
-  color: ${Theme.mediumGrey};
-  border-bottom: 1px solid ${Theme.mediumGrey};
+  ${font("Inconsolata", 16, 600)};
+  color: ${theme.mediumGrey};
+  border-bottom: 1px solid ${theme.mediumGrey};
 `;
 
 const Label = styled.label`
@@ -98,17 +98,17 @@ const Label = styled.label`
   flex-direction: column;
   line-height: 29.6px;
   margin: 21px 0 3px;
-  ${Font("Inconsolata", 15, 700)};
-  color: ${Theme.mediumGrey};
+  ${font("Inconsolata", 15, 700)};
+  color: ${theme.mediumGrey};
 `;
 
 const Input = styled.input`
   padding: 6px 11px;
   font-size: 15px;
-  color: ${Theme.mediumGrey};
+  color: ${theme.mediumGrey};
   line-height: 30.62px;
   outline: none;
-  border: 1px solid ${Theme.mediumGrey};
+  border: 1px solid ${theme.mediumGrey};
   border-radius: 0;
 `;
 
@@ -122,11 +122,11 @@ const ResetPasswordBtn = styled.button`
   height: 41px;
   padding: 1px 6px;
   vertical-align: top;
-  ${Font("Spartan", 16, 700)}
+  ${font("Spartan", 16, 700)}
   line-height: 40px;
   letter-spacing: 0.8px;
-  color: ${Theme.lightBeige};
-  background-color: ${Theme.mediumGrey};
+  color: ${theme.lightBeige};
+  background-color: ${theme.mediumGrey};
 
   &:hover {
     background-color: #333333;

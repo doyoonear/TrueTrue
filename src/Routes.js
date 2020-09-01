@@ -7,6 +7,8 @@ import Login from "./Components/Nav/Login/Login";
 import NewAccount from "./Pages/NewAccount/NewAccount";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 import Nav from "./Components/Nav/Nav";
+import ProductCard from "./Components/ProductCard/ProductCard";
+import ShopList from "./Pages/Shop/ShopList/ShopList";
 
 class Routes extends React.Component {
   render() {
@@ -14,10 +16,12 @@ class Routes extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/resetpw" component={ResetPassword} />
+          <Route exact path="/productcard" component={ProductCard} />
           <Route exact path="/login/register" component={NewAccount} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/" component={Main} />
           <Route exact path="/shop" component={Shop} />
+          <Route exact path="/shoplist" component={ShopList} />
           <Route exact path="/shop/shop-detail" component={ShopDetail} />
           <Route
             exact

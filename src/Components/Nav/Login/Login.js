@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import GlobalStyles, {
   MoveCenter,
-  Font,
-  Theme,
+  font,
+  theme,
 } from "../../../Styles/GlobalStyles.js";
 import CustomerLogin from "./CustomerLogin/CustomerLogin";
 import RecoverPassword from "./RecoverPassword/RecoverPassword";
@@ -44,12 +44,12 @@ export default Login;
 const LoginBox = styled.div`
   position: relative;
   padding: 55px 30px 52px;
-  background-color: ${Theme.darkGrey};
+  background-color: ${theme.darkGrey};
   top: ${(props) => (props.hide ? "-361.3px" : "0px")};
   transition-duration: 1s;
 
   * {
-    ${Font("Spartan", "", 700)};
+    ${font("Spartan", "", 700)};
   }
 `;
 

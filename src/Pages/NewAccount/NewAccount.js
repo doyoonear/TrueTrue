@@ -5,8 +5,8 @@ import { Redirect } from "react-router";
 import styled from "styled-components";
 import GlobalStyles, {
   MoveCenter,
-  Font,
-  Theme,
+  font,
+  theme,
 } from "../../Styles/GlobalStyles.js";
 import EmailValCheck from "../NewAccount/EmailValCheck/EmailValCheck";
 import PasswordValCheck from "../NewAccount/PasswordValCheck/PasswordValCheck";
@@ -48,17 +48,15 @@ function NewAccount() {
       <NewAccountBox>
         <Title>NEW ACCOUNT</Title>
         {LABEL_OBJ.map((el, idx) => {
-          const { title, type, name } = el;
-
           return (
             <Label key={idx}>
-              {title}
+              {el[0]}
               <Input
-                type={type}
+                type={el[1]}
                 onChange={handleChange}
-                name={name}
+                name={el[2]}
                 autofocus
-              />
+              ></Input>
               {idx === 2 &&
                 register.email.length > 0 &&
                 !register.email.includes("@") && <EmailValCheck />}
@@ -92,7 +90,7 @@ const NewAccountContainer = styled.div`
   flex-direction: column;
   height: 738.6px;
   padding: 30px 30px 0;
-  background-color: ${Theme.lightBeige};
+  background-color: ${theme.lightBeige};
 `;
 
 const NewAccountBox = styled.div`
@@ -107,9 +105,9 @@ const Title = styled.h1`
   justify-content: center;
   padding-bottom: 9px;
   margin-top: 82px;
-  ${Font("Khand", 28, 600)};
-  color: ${Theme.mediumGrey};
-  border-bottom: 1px solid ${Theme.mediumGrey};
+  ${font("Khand", 28, 600)};
+  color: ${theme.mediumGrey};
+  border-bottom: 1px solid ${theme.mediumGrey};
 `;
 
 const Label = styled.label`
@@ -117,17 +115,17 @@ const Label = styled.label`
   flex-direction: column;
   line-height: 29.6px;
   margin: 21px 0 3px;
-  ${Font("Spartan", 15, 700)};
-  color: ${Theme.mediumGrey};
+  ${font("Spartan", 15, 700)};
+  color: ${theme.mediumGrey};
 `;
 
 const Input = styled.input`
   padding: 6px 11px;
   font-size: 15px;
-  color: ${Theme.mediumGrey};
+  color: ${theme.mediumGrey};
   line-height: 30.62px;
   outline: none;
-  border: 1px solid ${Theme.mediumGrey};
+  border: 1px solid ${theme.mediumGrey};
   border-radius: 0;
 `;
 
@@ -141,11 +139,11 @@ const Button = styled.button`
   height: 41px;
   padding: 1px 6px;
   vertical-align: top;
-  ${Font("Spartan", 16, 700)}
+  ${font("Spartan", 16, 700)}
   line-height: 40px;
   letter-spacing: 0.8px;
-  color: ${Theme.lightBeige};
-  background-color: ${Theme.mediumGrey};
+  color: ${theme.lightBeige};
+  background-color: ${theme.mediumGrey};
 
   &:hover {
     background-color: #333333;
