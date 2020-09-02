@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import CardImg from "./CardImg/CardImg";
-import GlobalStyles, { theme } from "../../../../Styles/GlobalStyles";
+import GlobalStyles, { theme, font } from "../../../../Styles/GlobalStyles";
 
 class Slider extends Component {
   state = {
@@ -16,7 +16,6 @@ class Slider extends Component {
       ].cloneNode(true);
       this.CardContainer.insertBefore(lastCard, this.CardContainer.children[0]);
       this.CardContainer.append(firstCard);
-
       const styles = {
         transitionDuration: "0.0s",
         transform: `translate(-${915}px)`,
@@ -88,7 +87,9 @@ class Slider extends Component {
         </CardContainer>
         <RightBtn onClick={this.handleNext} />
         <Counter>
-          01/0{data.images?.length}
+          {this.state.currentCard >= 10 ? "" : 0}
+          {this.state.currentCard}/{data.images?.length >= 10 ? "" : 0}
+          {data.images?.length}
           <ButtonContainer>
             <Arrow alt="왼쪽 화살표" onClick={this.handlePre} />
             <Arrow
@@ -144,6 +145,7 @@ const Counter = styled.div`
   margin-top: 7px;
   margin-left: 42px;
   right: 0;
+  ${font("Inconsolata", 18)}
 `;
 
 const ButtonContainer = styled.div`

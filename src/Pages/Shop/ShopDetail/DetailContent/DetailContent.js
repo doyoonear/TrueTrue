@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 import LeftSection from "./LeftSection/LeftSection";
 import RightSection from "./RightSection/RightSection";
@@ -22,7 +23,7 @@ function DetailContent(props) {
   );
 }
 
-export default DetailContent;
+export default withRouter(DetailContent);
 
 const Container = styled.section`
   display: flex;

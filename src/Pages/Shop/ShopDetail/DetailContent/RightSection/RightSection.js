@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import PackageList from "./PackageList";
 import NumberOfUsers from "./NumberOfUsers";
+import Requirements from "./Requirements";
 import GlobalStyles, {
   theme,
   font,
@@ -12,8 +13,11 @@ import GlobalStyles, {
 function RightSection({ text }) {
   const [onList, setOnList] = useState(false);
   const [onUser, setOnUser] = useState(false);
+  const [onRequire, setOnRequire] = useState(false);
   const [packageSelect, setPackage] = useState("Choose a Package");
   const [usersSelect, setUserSelect] = useState("Choose Numbers of Users");
+  const [indexPackage, setIndexPackage] = useState(-1);
+  const [indexUsers, setIndexUsers] = useState(-1);
 
   const showList = () => {
     setOnList(!onList);
@@ -23,12 +27,18 @@ function RightSection({ text }) {
     setOnUser(!onUser);
   };
 
+  const showRequire = () => {
+    setOnRequire(!onRequire);
+  };
+
   const setOnText = (index) => {
     setPackage(text.buy[index]);
+    setIndexPackage(index);
   };
 
   const setOnUsers = (index) => {
     setUserSelect(text.users[index]);
+    setIndexUsers(index);
   };
 
   return (
@@ -37,14 +47,18 @@ function RightSection({ text }) {
       <Sidebox>
         <SideTitle>Buying Choices</SideTitle>
         <Basket>
-          <ChoosePackage onClick={showList}>{packageSelect}</ChoosePackage>
+          <ChoosePackage onClick={showList} opacity={onList}>
+            {packageSelect}
+          </ChoosePackage>
           <PackageList
             list={text.buy}
             onList={onList}
             change={setOnText}
             show={showList}
           />
-          <NumberOfUser onClick={showUser}>{usersSelect}</NumberOfUser>
+          <NumberOfUser onClick={showUser} opacity={onUser}>
+            {usersSelect}
+          </NumberOfUser>
           <NumberOfUsers
             user={text.users}
             onUser={onUser}
@@ -53,7 +67,7 @@ function RightSection({ text }) {
           />
         </Basket>
         <InfoText>License info</InfoText>
-        <Submit>
+        <Submit submitPackage={indexPackage} submitUsers={indexUsers}>
           From <SubmitDollar>$19.00</SubmitDollar> _ Make A SELECTION
         </Submit>
       </Sidebox>
@@ -76,8 +90,9 @@ function RightSection({ text }) {
           </MsgBoxText>
         </MsgBox>
         <MsgBox>
-          <System>System Requirements</System>
+          <System onClick={showRequire}>System Requirements</System>
         </MsgBox>
+        <Requirements show={onRequire}></Requirements>
       </ExtraOption>
     </SideBar>
   );
@@ -90,7 +105,7 @@ const SideBar = styled.section`
   top: 174px;
   right: 10%;
   width: 576px;
-  height: 681.55px;
+  height: 1006px;
 `;
 
 const Sidebox = styled.div`
@@ -131,8 +146,10 @@ const ChoosePackage = styled.div`
   height: 50px;
   padding: 15px;
   margin-bottom: 25px;
-  font-size: 16px;
+  line-height: 25px;
+  ${font("Spartan", 13, 600)};
   border: 1px solid ${theme.mediumGrey};
+  opacity: ${({ opacity }) => (opacity ? 0.2 : "")};
 
   &::before {
     content: "";
@@ -147,10 +164,6 @@ const ChoosePackage = styled.div`
   }
 `;
 
-const ChoosePackageDefault = styled.span.attrs((select) => ({
-  value: select || "Choose a Package",
-}))``;
-
 const NumberOfUser = styled.div`
   position: absolute;
   width: 100%;
@@ -158,8 +171,10 @@ const NumberOfUser = styled.div`
   top: 44%;
   padding: 15px;
   margin-bottom: 25px;
-  font-size: 16px;
+  line-height: 25px;
+  ${font("Spartan", 13, 600)};
   border: 1px solid ${theme.mediumGrey};
+  opacity: ${({ opacity }) => (opacity ? 0.2 : "")};
 
   &::before {
     content: "";
@@ -188,7 +203,10 @@ const Submit = styled.button`
   bottom: 20px;
   ${font("Spartan", 14)};
   color: white;
-  background-color: #b3afaa;
+  background-color: ${({ submitPackage, submitUsers }) =>
+    submitPackage >= 0 && submitUsers >= 0 ? theme.mediumGrey : "#b3afaa"};
+  cursor: ${({ submitPackage, submitUsers }) =>
+    submitPackage >= 0 && submitUsers >= 0 ? "pointer" : "no-drop"};
 `;
 
 const SubmitDollar = styled.span`
@@ -234,6 +252,7 @@ const MsgBox = styled.div`
   height: 57px;
   border-top: 1px solid #b3afaa;
   border-bottom: 1px solid #b3afaa;
+  text-align: center;
 `;
 
 const MsgBoxText = styled.span`
@@ -244,6 +263,7 @@ const MsgBoxText = styled.span`
 const System = styled.span`
   line-height: 52px;
   padding: 14px;
+  cursor: pointer;
 
   &::before {
     content: "";
@@ -251,8 +271,8 @@ const System = styled.span`
     position: absolute;
     width: 10px;
     height: 9px;
-    left: 37%;
-    bottom: 3.1%;
+    right: 30%;
+    bottom: 34.4%;
     background-size: contain;
     transform: translateY(-50%);
   }

@@ -6,23 +6,29 @@ import GlobalStyles, {
   MoveCenter,
   Khand,
   Font,
+  theme,
 } from "../../../Styles/GlobalStyles";
 
-function ShopDetail() {
+function ShopDetail(props) {
   const [data, setImgData] = useState([]);
+  const name = props.match.params.product;
 
   useEffect(() => {
     fetch("/Data/shopDetailData.json")
       .then((res) => res.json())
-      .then((res) => setImgData(res));
-  }, []);
+      .then((res) => setImgData(res[name]));
+  }, [name]);
 
   return (
-    <div>
+    <ShopDetailBody>
       <Slide data={data} />
       <DetailContent data={data} />
-    </div>
+    </ShopDetailBody>
   );
 }
 
 export default ShopDetail;
+
+const ShopDetailBody = styled.div`
+  background-color: ${theme.lightBeige};
+`;
