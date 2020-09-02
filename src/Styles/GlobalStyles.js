@@ -15,12 +15,14 @@ export const FlexCenter = css`
   justify-content: center;
 `;
 
-export const Font = (name, size) => css`
+export const font = (name, size, weight) => css`
   font-family: ${name};
   font-size: ${size}px;
+  font-weight: ${weight};
+  /*Khand, Spartan, Inconsolata*/
 `;
 
-export const Theme = {
+export const theme = {
   lightBeige: "#fdf9f2",
   darkBeige: "#eee9e3",
   lightGrey: "#a9a6a0",
