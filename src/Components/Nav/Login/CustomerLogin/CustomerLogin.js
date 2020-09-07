@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { config } from "../../../../config";
 import styled from "styled-components";
 import GlobalStyles, {
   MoveCenter,
@@ -14,16 +15,15 @@ function CustomerLogin({ recoverToggle }) {
   const kakaoLoginClickHandler = () => {
     Kakao.Auth.login({
       success: function (authObj) {
-        fetch(`http://18.222.175.48:8000/user/kakaosignin`, {
+        fetch(`${config.api}/user/kakaosignin`, {
           method: "POST",
+          // fetch 함수의 결과로 우리 사이트의 토큰을 response 로 받는다
           headers: {
             Authorization: authObj.access_token,
           },
         })
           .then((res) => res.json())
-          .then((res) =>
-            localStorage.setItem("access_token", res.access_token)
-          );
+          .then((res) => localStorage.setItem("kakao_token", res.access_token));
       },
       fail: function (err) {
         alert(JSON.stringify(err));
@@ -42,7 +42,7 @@ function CustomerLogin({ recoverToggle }) {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    fetch("http://192.168.200.123:8000/user/signin", {
+    fetch(`${config.api}/user/signin`, {
       method: "POST",
       body: JSON.stringify({
         email: login.email,
@@ -74,7 +74,12 @@ function CustomerLogin({ recoverToggle }) {
             name="password"
             onChange={handleChange}
           />
-          <Button type="submit" onClick={handleLogin}>
+          <Button
+            type="submit"
+            onClick={() => {
+              handleLogin();
+            }}
+          >
             SIGN IN
           </Button>
         </FormInput>

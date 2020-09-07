@@ -38,8 +38,10 @@ export default Login;
 
 const LoginBox = styled.div`
   position: relative;
-  padding: 55px 30px 52px;
+  display: flex;
+  align-items: center;
   height: 321.3px;
+  padding: 55px 30px 52px;
   background-color: ${theme.darkGrey};
   top: ${(props) => (props.loginActive ? "0px" : "-361.3px")};
   transition-duration: 1s;

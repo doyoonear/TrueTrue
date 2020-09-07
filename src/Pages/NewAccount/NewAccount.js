@@ -11,6 +11,13 @@ import GlobalStyles, {
 import EmailValCheck from "../NewAccount/EmailValCheck/EmailValCheck";
 import PasswordValCheck from "../NewAccount/PasswordValCheck/PasswordValCheck";
 
+const LABEL_OBJ = [
+  ["First Name", "text", "first_name"],
+  ["Last Name", "text", "last_name"],
+  ["Email", "email", "email"],
+  ["Password", "password", "password"],
+];
+
 function NewAccount() {
   const [register, setRegister] = useState({
     first_name: "",
@@ -38,7 +45,7 @@ function NewAccount() {
       .then((res) => res.json())
       .then((res) => {
         if (res.message === "SUCCESS") {
-          return <Redirect to="/login" />;
+          window.location.href = "/";
         }
       });
   };
@@ -48,26 +55,34 @@ function NewAccount() {
       <NewAccountBox>
         <Title>NEW ACCOUNT</Title>
         {LABEL_OBJ.map((el, idx) => {
+          const [labelName, inputType, inputName] = el;
+          const { email, password } = register;
           return (
             <Label key={idx}>
-              {el[0]}
+              {labelName}
               <Input
-                type={el[1]}
+                type={inputType}
                 onChange={handleChange}
-                name={el[2]}
+                name={inputName}
                 autofocus
               ></Input>
               {idx === 2 &&
                 register.email.length > 0 &&
                 !register.email.includes("@") && <EmailValCheck />}
               {idx === 3 &&
-                0 < register.password.length &&
-                !pwPattern.test(register.password) && <PasswordValCheck />}
+                0 < password.length &&
+                !pwPattern.test(password) && <PasswordValCheck />}
             </Label>
           );
         })}
         <ButtonContainer>
-          <Button onClick={createAccount}>CREATE</Button>
+          <Button
+            onClick={() => {
+              createAccount();
+            }}
+          >
+            CREATE
+          </Button>
         </ButtonContainer>
       </NewAccountBox>
     </NewAccountContainer>
@@ -75,13 +90,6 @@ function NewAccount() {
 }
 
 export default NewAccount;
-
-const LABEL_OBJ = [
-  ["First Name", "text", "first_name"],
-  ["Last Name", "text", "last_name"],
-  ["Email", "email", "email"],
-  ["Password", "password", "password"],
-];
 
 const NewAccountContainer = styled.div`
   display: flex;
