@@ -1,124 +1,50 @@
 {
-  "Stipple": {
-    "images": [
-      "//cdn.shopify.com/s/files/1/0989/0116/products/Stipple-Studio-1_915X610.png?v=1582771269",
-      "//cdn.shopify.com/s/files/1/0989/0116/products/Stipple-Studio-2_df5f4bed-89b9-4b0c-a8f5-6e13e9ce9e78_915X610.png?v=1582771269",
-      "//cdn.shopify.com/s/files/1/0989/0116/products/Stipple-Studio-3b_915X610.png?v=1582771269",
-      "//cdn.shopify.com/s/files/1/0989/0116/products/Stipple-Studio-4b_915X610.png?v=1582771269",
-      "//cdn.shopify.com/s/files/1/0989/0116/products/Stipple-Studio-5_915X610.png?v=1582771269",
-      "//cdn.shopify.com/s/files/1/0989/0116/products/Stipple-Studio-6_6f7e2c6a-5a9d-4816-b3ee-a836f7f8be2b_915X610.png?v=1582771269",
-      "//cdn.shopify.com/s/files/1/0989/0116/products/Stipple-Studio-7_915X610.png?v=1582771269",
-      "//cdn.shopify.com/s/files/1/0989/0116/products/Stipple-Studio-8_915X610.png?v=1582771269",
-      "//cdn.shopify.com/s/files/1/0989/0116/products/Stipple-Studio-9_915X610.png?v=1583104598",
-      "//cdn.shopify.com/s/files/1/0989/0116/products/Stipple-Studio-10_915X610.png?v=1583104598",
-      "//cdn.shopify.com/s/files/1/0989/0116/products/Stipple-Studio-11_915X610.png?v=1582771269"
+  "data": {
+    "id": 1,
+    "image": [
+      "https://cdn.shopify.com/s/files/1/0989/0116/products/The-Rusty-Nib-Photoshop-1_915X610.png?v=1564455845",
+      "https://cdn.shopify.com/s/files/1/0989/0116/products/The-Rusty-Nib-Photoshop-2_2296ca6c-f69c-442a-87e5-84791aed86ef_915X610.png?v=1564455845",
+      "https://cdn.shopify.com/s/files/1/0989/0116/products/The-Rusty-Nib-Photoshop-3_e7fe8890-a1a2-43bb-89d2-09f2fa2494bc_915X610.png?v=1564455845",
+      "https://cdn.shopify.com/s/files/1/0989/0116/products/The-Rusty-Nib-Photoshop-6_915X610.png?v=1564455845",
+      "https://cdn.shopify.com/s/files/1/0989/0116/products/The-Rusty-Nib-Photoshop-4_915X610.png?v=1564455845",
+      "https://cdn.shopify.com/s/files/1/0989/0116/products/The-Rusty-Nib-Photoshop-5_915X610.png?v=1564455845"
     ],
-
-    "get": [
-      "133 x Distressed Inking Brushes in total including:",
-      "38 x Nibs and Tech Pens",
-      "13 x Brush Pens",
-      "47 x Brush Inkers",
-      "09 x Flat Brushes",
-      "05 x Sumi-E Brushes.",
-      "12 x Ink Washes and Watercolors",
-      "09 x Bonus Effects Brushes",
-      "1 x Installation Guide",
-      "1 x User Guide",
-      "1 x Printable Brush Preview Booklet",
-      "Free updates."
-    ],
-
-    "keyFeature": [
-      "A huge variety of textures, edge effects, and brush poses to suit almost any drawing style.",
-      "Built from high-def analog source materials and designed for pro-quality output.",
-      "Intuitive and easy-to-use whether you're a weekend warrior honing your craft or a full-time pro chasing deadlines and dreams.",
-      "Easy to navigate with brushes grouped by folder (CC2018+) or brush list dividers (CS6-CC2017).",
-      "Includes easy-to-use ink washes and watercolors with realistic bleed and blend effects for authentic results."
-    ],
-
-    "buy": ["Photoshop Version", "Photoshop + Procreate (Save $8)"],
-
-    "users": ["1 Users", "2 Users", "3 Users", "4 Users", "5 Users"],
-
-    "buyInfo": [
-      {
-        "name": "Photoshop",
-        "url": [
-          "//cdn.shopify.com/s/files/1/0989/0116/files/Photoshop_ICON_2x_134x134_crop_center_2x_7ff3b338-01dd-4d68-b377-d5d3fdaf7295_200x200.png?v=1548238607"
-        ]
-      },
-      {
-        "name": "Version",
-        "url": "//cdn.shopify.com/s/files/1/0989/0116/files/CS6_ICON_2x_134x134_crop_center_2x_5419d8c0-5d3e-4ca1-b39a-46ced2f4dbb2_200x200.png?v=1548238519"
-      },
-      {
-        "name": "Brush Set",
-        "url": "//cdn.shopify.com/s/files/1/0989/0116/files/Brush_set_ICON_2x_134x134_crop_center_2x_b5cc4c47-e7bc-4c82-af71-80729ed66b18_200x200.png?v=1548239238"
-      },
-      {
-        "name": "Seamless",
-        "url": "//cdn.shopify.com/s/files/1/0989/0116/files/Pattern_ICON_2x_ef21c2ff-4e32-41fe-9f4b-3d8934242537_200x200.png?v=1550866234"
-      }
-    ]
-  },
-
-  "Rusty": {
-    "images": [
-      "//cdn.shopify.com/s/files/1/0989/0116/products/The-Rusty-Nib-Photoshop-1_915X610.png?v=1564455845",
-      "//cdn.shopify.com/s/files/1/0989/0116/products/The-Rusty-Nib-Photoshop-2_2296ca6c-f69c-442a-87e5-84791aed86ef_915X610.png?v=1564455845",
-      "//cdn.shopify.com/s/files/1/0989/0116/products/The-Rusty-Nib-Photoshop-3_e7fe8890-a1a2-43bb-89d2-09f2fa2494bc_915X610.png?v=1564455845",
-      "//cdn.shopify.com/s/files/1/0989/0116/products/The-Rusty-Nib-Photoshop-4_915X610.png?v=1564455845",
-      "//cdn.shopify.com/s/files/1/0989/0116/products/The-Rusty-Nib-Photoshop-5_915X610.png?v=1564455845",
-      "//cdn.shopify.com/s/files/1/0989/0116/products/The-Rusty-Nib-Photoshop-6_915X610.png?v=1564455845"
-    ],
-
-    "get": [
-      "133 x Distressed Inking Brushes in total including:",
-      "38 x Nibs and Tech Pens",
-      "13 x Brush Pens",
-      "47 x Brush Inkers",
-      "09 x Flat Brushes",
-      "05 x Sumi-E Brushes.",
-      "12 x Ink Washes and Watercolors",
-      "09 x Bonus Effects Brushes",
-      "1 x Installation Guide",
-      "1 x User Guide",
-      "1 x Printable Brush Preview Booklet",
-      "Free updates."
-    ],
-
-    "keyFeature": [
-      "A huge variety of textures, edge effects, and brush poses to suit almost any drawing style.",
-      "Built from high-def analog source materials and designed for pro-quality output.",
-      "Intuitive and easy-to-use whether you're a weekend warrior honing your craft or a full-time pro chasing deadlines and dreams.",
-      "Easy to navigate with brushes grouped by folder (CC2018+) or brush list dividers (CS6-CC2017).",
-      "Includes easy-to-use ink washes and watercolors with realistic bleed and blend effects for authentic results."
-    ],
-
-    "buy": ["Photoshop Version", "Photoshop + Procreate (Save $8)"],
-
-    "users": ["1 Users", "2 Users", "3 Users", "4 Users", "5 Users"],
-
-    "buyInfo": [
-      {
-        "name": "Photoshop",
-        "url": [
-          "//cdn.shopify.com/s/files/1/0989/0116/files/Photoshop_ICON_2x_134x134_crop_center_2x_7ff3b338-01dd-4d68-b377-d5d3fdaf7295_200x200.png?v=1548238607"
-        ]
-      },
-      {
-        "name": "Version",
-        "url": "//cdn.shopify.com/s/files/1/0989/0116/files/CS6_ICON_2x_134x134_crop_center_2x_5419d8c0-5d3e-4ca1-b39a-46ced2f4dbb2_200x200.png?v=1548238519"
-      },
-      {
-        "name": "Brush Set",
-        "url": "//cdn.shopify.com/s/files/1/0989/0116/files/Brush_set_ICON_2x_134x134_crop_center_2x_b5cc4c47-e7bc-4c82-af71-80729ed66b18_200x200.png?v=1548239238"
-      },
-      {
-        "name": "Seamless",
-        "url": "//cdn.shopify.com/s/files/1/0989/0116/files/Pattern_ICON_2x_ef21c2ff-4e32-41fe-9f4b-3d8934242537_200x200.png?v=1550866234"
-      }
-    ]
+    "name": "The Rusty Nib for Photoshop",
+    "sub_name": "Distressed Inking Brushes",
+    "editor": "Photoshop",
+    "description": "'Also available forProcreate & Affinity.', 'Draw til yer deadwithover 130pro-quality distressedinking brushes for Photoshop, from rough andgritty to smooth and delicate and everything between.', 'Each brush isbuilt from scratchusing original analogbrush and texture samples to create a diverse and powerful set oftools that combine the tactile beauty of ink on paper with the convenience of a modern digital workflow.', 'With a huge range of authentic stroke styles, textures, edge effects, poses, and brush feels The Rusty Nib Brush Set is as realistic as it is diverse. We've got you covered whether you're re-creating the gritty aesthetic of scanned print ephemera or aiming for the subtlety of real india ink flowing onto the page.",
+    "item": "133 x Distressed Inking Brushes in total including:\n38 x Nibs and Tech Pens\n13 x Brush Pens\n47 x Brush Inkers\n09 x Flat Brushes\n05 x Sumi-E Brushes.\n12 x Ink Washes and Watercolors\n09 x Bonus Effects Brushes\n1 x Installation Guide\n1 x User Guide\n1 x Printable Brush Preview Booklet\nFree updates.",
+    "feature": "A huge variety of textures, edge effects, and brush poses to suit almost any drawing style.\nBuilt from high-def analog source materials and designed for pro-quality output. \nIntuitive and easy-to-use whether you're a weekend warrior honing your craft or a full-time pro chasing deadlines and dreams.\nEasy to navigate with brushes grouped by folder (CC2018+) or brush list dividers (CS6-CC2017).\nIncludes easy-to-use ink washes and watercolors with realistic bleed and blend effects for authentic results.",
+    "video_url": "https://player.vimeo.com/video/352387513?color=bf914c&title=0&byline=0&portrait=0",
+    "guarantee": true,
+    "description_image": "https://cdn.shopify.com/s/files/1/0989/0116/files/The-Rusty-Nib-InstallGuide-Combined_f55735f9-de96-4061-9745-beda7132cefc_1024x1024.png?v=1564430367",
+    "collection_image": "",
+    "collection_description": "",
+    "gif_image": "https://cdn.shopify.com/s/files/1/0989/0116/files/Rusty-Nib-Stroke-GIF-Edited-700px-32col_1024x1024.gif?v=1564441494",
+    "is_discounted": false,
+    "photoshop": true,
+    "version": true,
+    "brush_set": true,
+    "vector": false,
+    "psd_file": false,
+    "raster": false,
+    "illustrator": false,
+    "texture_set": false,
+    "texture": false,
+    "action_set": false,
+    "bundle": false,
+    "seamless": true,
+    "procreate": false,
+    "cc19": false,
+    "patterns": false,
+    "affinity": false,
+    "detail_text": "Save 30-40% with an Everything Photoshop or BYO Bundle. ",
+    "system_requirements": " Suitable for novice to expert Photoshop users.\nSOFTWARE: Adobe Photoshop CS6 or higher.\nHARDWARE: 2.4ghz processor or higher.\nACCESSORIES:  Graphics tablet required.\nMEMORY: 8gb RAM or higher. (16+ recommended).\nSTORAGE: 120mb of available storage space.\n\nNote: Included brushes and functionality varies between Photoshop and Procreate. Please check individual product pages for exact inclusions and brush previews.",
+    "price": [19.0, 30.0],
+    "discount_price": [19.0, 30.0],
+    "package_name": ["Photoshop Version", "Photoshop + Procreate (Save $8)"],
+    "save_price": [0.0, 8.0],
+    "skill_level": [],
+    "artist": []
   }
 }

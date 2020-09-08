@@ -81,15 +81,15 @@ class Slider extends Component {
       <Container>
         <LeftBtn onClick={this.handlePre} />
         <CardContainer ref={(id) => (this.CardContainer = id)}>
-          {data.images?.map((v, idx) => {
+          {data.image?.map((v, idx) => {
             return <CardImg key={idx} url={v} />;
           })}
         </CardContainer>
         <RightBtn onClick={this.handleNext} />
         <Counter>
           {this.state.currentCard >= 10 ? "" : 0}
-          {this.state.currentCard}/{data.images?.length >= 10 ? "" : 0}
-          {data.images?.length}
+          {this.state.currentCard}/{data.image?.length >= 10 ? "" : 0}
+          {data.image?.length}
           <ButtonContainer>
             <Arrow alt="왼쪽 화살표" onClick={this.handlePre} />
             <Arrow

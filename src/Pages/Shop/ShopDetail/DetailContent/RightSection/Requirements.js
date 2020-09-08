@@ -7,25 +7,11 @@ import GlobalStyles, {
   MoveCenter,
 } from "../../../../../Styles/GlobalStyles";
 
-function Requirements({ show }) {
+function Requirements({ show, text }) {
   return (
     <>
       <Container show={show}>
-        <MsgBox>
-          Suitable for novice to expert Photoshop users.
-          <br />
-          <br /> SOFTWARE: Adobe Photoshop CS6 or higher. <br /> HARDWARE:
-          2.4ghz processor or higher.
-          <br /> ACCESSORIES: Graphics tablet required.
-          <br /> MEMORY: 8gb RAM or higher. (16+ recommended).
-          <br /> STORAGE: 120mb of available storage space.
-          <br />
-          <br />
-          <br /> Note: Included brushes and functionality varies between
-          Photoshop and Procreate. Please check individual product pages for
-          exact inclusions and brush previews.
-          <br />
-        </MsgBox>
+        <MsgBox>{text}</MsgBox>
       </Container>
     </>
   );

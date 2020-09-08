@@ -8,70 +8,72 @@ import GlobalStyles, {
   theme,
 } from "../../../../../Styles/GlobalStyles";
 function LeftSection({ text }) {
+  const contents = text.description;
+  const descriptionArr = contents?.split("', '");
+  const TitleArr =
+    descriptionArr && descriptionArr[0].includes("Also available")
+      ? descriptionArr?.slice(2)
+      : descriptionArr?.slice(1);
+
   return (
     <Container>
       <TitleContent>
         <TitleContentBox>
-          <Title>The Rusty Nib for Photoshop</Title>
-          <Sub>Distressed Inking Brushes</Sub>
+          <Title>{text.name}</Title>
+          <Sub>{text.sub_name}</Sub>
           <Sub>
-            for <Link to="#">Photoshop</Link>
+            for <Link to="#">{text.editor}</Link>
           </Sub>
         </TitleContentBox>
       </TitleContent>
       <DescriptionTitle>
-        Also available for Procreate & Affinity.
+        {descriptionArr && descriptionArr[0].includes("Also available")
+          ? descriptionArr && descriptionArr[0].substring(1)
+          : ""}
       </DescriptionTitle>
       <DescriptionSubTitle>
         <br />
-        Draw til yer dead with over 130 pro-quality distressed inking brushes
-        for Photoshop, from rough and gritty to smooth and delicate and
-        everything between.
+        {descriptionArr && descriptionArr[0].includes("Also available")
+          ? descriptionArr && descriptionArr[1]
+          : descriptionArr && descriptionArr[0].substring(1)}
       </DescriptionSubTitle>
-      <DescriptionMainText>
-        Each brush is built from scratch using original analog brush and texture
-        samples to create a diverse and powerful set of tools that combine the
-        tactile beauty of ink on paper with the convenience of a modern digital
-        workflow.
-      </DescriptionMainText>
-      <DescriptionMainText>
-        With a huge range of authentic stroke styles, textures, edge effects,
-        poses, and brush feels The Rusty Nib Brush Set is as realistic as it is
-        diverse. We've got you covered whether you're re-creating the gritty
-        aesthetic of scanned print ephemera or aiming for the subtlety of real
-        india ink flowing onto the page.
-      </DescriptionMainText>
+
+      {TitleArr?.map((v) => {
+        return <DescriptionMainText key={v}>{v}</DescriptionMainText>;
+      })}
       <DescriptionTitle>
         <br /> &nbsp;
       </DescriptionTitle>
-      <Video />
+      <Video
+        video={text.video_url}
+        show={text.video_url === "" ? true : false}
+      />
       <GetItemInfo>Here's what you get:</GetItemInfo>
       <ListItem>
-        {text.get &&
-          text.get.map((v) => {
-            return <ListItemDescription key={v}>{v}</ListItemDescription>;
-          })}
+        {text.item?.map((v) => {
+          return <ListItemDescription key={v}>{v}</ListItemDescription>;
+        })}
       </ListItem>
       <ContainerP>&nbsp;</ContainerP>
-      <Texture>
+      <Texture show={text.gif_image === "" ? true : false}>
         Preview every brush here:
-        <TextureImg></TextureImg>
+        <TextureImg img={text.gif_image}></TextureImg>
       </Texture>
       <Texture>Key features:</Texture>
       <ListItem>
-        {text.keyFeature &&
-          text.keyFeature.map((v) => {
+        {text.feature &&
+          text.feature.map((v) => {
             return <ListItemDescription key={v}>{v}</ListItemDescription>;
           })}
       </ListItem>
       <ContainerP>&nbsp;</ContainerP>
       <SummaryItem>
         <br />
-        <FullImg />
-        <small>
+        <FullImg img={text.description_image} />
+        <div>
           Get up to speed fast with comprehensive user guides and brushstroke
           preview included
-        </small>
+        </div>
       </SummaryItem>
       <ContainerP>&nbsp;</ContainerP>
       <DescriptionTitle>
@@ -134,7 +136,6 @@ const DescriptionTitle = styled.h4`
 `;
 
 const DescriptionSubTitle = styled.h2`
-  height: 150px;
   line-height: 30px;
   margin-top: 30px;
   margin-bottom: 15px;
@@ -149,12 +150,11 @@ const DescriptionMainText = styled.p`
 `;
 
 const Video = styled.iframe.attrs((props) => ({
-  src:
-    props.video ||
-    "https://player.vimeo.com/video/352387513?color=bf914c&title=0&byline=0&portrait=0",
+  src: props.video || "",
 }))`
   width: 100%;
   height: 453.16px;
+  display: ${(props) => (props.show ? "none" : "block")};
 `;
 
 const GetItemInfo = styled.h3`
@@ -177,7 +177,7 @@ const ListItemDescription = styled.li`
   &::before {
     content: "✓";
     position: relative;
-    left: -13%;
+    left: -5.8%;
   }
 `;
 
@@ -191,12 +191,11 @@ const Texture = styled.h3`
   line-height: 28px;
   margin-top: 30px;
   margin-bottom: 15px;
+  display: ${(props) => (props.show ? "none" : "block")};
 `;
 
 const TextureImg = styled.img.attrs((props) => ({
-  src:
-    props.img ||
-    "https://cdn.shopify.com/s/files/1/0989/0116/files/Rusty-Nib-Stroke-GIF-Edited-700px-32col_1024x1024.gif?v=1564441494",
+  src: props.img || "",
 }))`
   width: 100%;
   height: 142px;
@@ -207,9 +206,7 @@ const SummaryItem = styled.p`
 `;
 
 const FullImg = styled.img.attrs((props) => ({
-  src:
-    props.img ||
-    "https://cdn.shopify.com/s/files/1/0989/0116/files/The-Rusty-Nib-InstallGuide-Combined_f55735f9-de96-4061-9745-beda7132cefc_1024x1024.png?v=1564430367",
+  src: props.img || "",
 }))`
   max-width: 100%;
   height: auto;

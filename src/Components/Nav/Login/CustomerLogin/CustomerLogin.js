@@ -42,7 +42,7 @@ function CustomerLogin({ recoverToggle }) {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    fetch("http://18.222.175.48:8000/user/signin", {
+    fetch("http://192.168.200.123:8000/user/signin", {
       method: "POST",
       body: JSON.stringify({
         email: login.email,
@@ -51,7 +51,7 @@ function CustomerLogin({ recoverToggle }) {
     })
       .then((res) => res.json())
       .then((res) => {
-        setLogin(res);
+        localStorage.setItem("login_token", res.access_token);
       });
   };
 

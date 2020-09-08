@@ -1,0 +1,20 @@
+{
+  "cart": [
+    {
+      "cart_id": 3,
+      "product_image": "http://cdn.shopify.com/s/files/1/0989/0116/products/Stipple-Studio-6_6f7e2c6a-5a9d-4816-b3ee-a836f7f8be2b.png?v=1582771269",
+      "product_name": "Stipple Studio for Photoshop",
+      "package_name": "Photoshop + Procreate (Save $8)",
+      "count": 1,
+      "price": 30.0
+    },
+    {
+      "cart_id": 4,
+      "product_image": "http://cdn.shopify.com/s/files/1/0989/0116/products/Ultimate-Brush-Toolbox-1800-2019-3.png?v=1595380733",
+      "product_name": "The Ultimate Texture Brush Toolkit",
+      "package_name": "",
+      "count": 3,
+      "price": 107.0
+    }
+  ]
+}
