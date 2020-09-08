@@ -27,6 +27,7 @@ export default withRouter(DetailContent);
 
 const Container = styled.section`
   display: flex;
+  position: relative;
   width: 100%;
   padding-right: 30px;
   margin-top: 93px;

@@ -4,6 +4,7 @@ import NavBanner from "./Nav_Components/NavBanner";
 import NavDropDown from "./Nav_Components/NavDropDown";
 import Login from "./Login/Login";
 import Search from "./Search/Search";
+import CartModal from "../CartModal/CartModal";
 import styled from "styled-components";
 import { MoveCenter, font, theme } from "../../Styles/GlobalStyles";
 
@@ -30,6 +31,10 @@ function Nav() {
 
   const searchToggle = () => {
     setSearchActive(!searchActive);
+  };
+
+  const onCart = () => {
+    setCartActive(!cartActive);
   };
 
   return (
@@ -95,6 +100,7 @@ function Nav() {
                   ? "/Images/main_images/cart_active.webp"
                   : "/Images/main_images/cart_icon.svg"
               }
+              onClick={onCart}
             />
           </Icons>
         </NavBar>
@@ -104,6 +110,7 @@ function Nav() {
           visible={visible}
         />
       </NavWhole>
+      <CartModal show={cartActive} />
     </nav>
   );
 }

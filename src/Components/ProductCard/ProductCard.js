@@ -9,6 +9,10 @@ import GlobalStyles, {
 } from "../../Styles/GlobalStyles.js";
 
 function ProductCard({ productData }) {
+  const refresh = (e) => {
+    e(window.location.reload());
+  };
+
   return (
     <>
       {productData.map((v, idx) => {
@@ -62,6 +66,7 @@ const ProductCardList = styled.li`
   margin-bottom: 40px;
   list-style: none;
   background-color: ${theme.lightBeige};
+  z-index: 1;
 `;
 
 const Img = styled.img`

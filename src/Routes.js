@@ -16,13 +16,10 @@ class Routes extends React.Component {
   render() {
     return (
       <Router>
+        <Nav />
         <Switch>
-          <Route exact path="/resetpw" component={ResetPassword} />
-          <Route exact path="/productcard" component={ProductCard} />
           <Route exact path="/login/register" component={NewAccount} />
-          <Route exact path="/login" component={Login} />
           <Route exact path="/" component={MainP} />
-          <Route exact path="/shoplist" component={ShopList} />
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/shoplist" component={ShopList} />
           <Route exact path="/shop/shop-detail" component={ShopDetail} />
@@ -31,7 +28,6 @@ class Routes extends React.Component {
             path="/shop/shop-detail/:product"
             component={ShopDetail}
           />
-          <Route exact path="/nav" component={Nav} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/search/:result" component={SearchResult} />
         </Switch>

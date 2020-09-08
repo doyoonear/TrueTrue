@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { plusUsers } from "../../store/actions";
 import { cartInfo } from "../../store/actions";
 import styled from "styled-components";
+import { config } from "../../config";
 import GlobalStyles, { font, theme } from "../../Styles/GlobalStyles";
 
-function CartModal() {
+function CartModal({ show }) {
   const [cartList, setCartList] = useState([]);
-  // const [cartInfo, setCartInfo] = useState({
-  //   package_id: "",
-  //   product_count: "",
-  // });
   const [cartData, setCartData] = useState({});
 
   const userCount = useSelector((store) => store.userCountReducer);
@@ -19,29 +16,38 @@ function CartModal() {
   const productInfo = useSelector((store) => store.cartInfoReducer);
   const dispatch = useDispatch();
 
-  // const deleteCart = () => {
-  //   const token = localStorage.getItem("login_token");
-  //   fetch("http://192.168.200.123:8000/user/cart", {
-  //     method: "DELETE",
-  //     headers: {
-  //       Authorization: token,
-  //     },
-  //     body: JSON.stringify({
-  //       cart_id: productInfo.cart.cart_id,
-  //     }).then((res) => {
-  //       console.log(res.message);
-  //     }),
-  //   });
-  // };
+  useEffect(() => {
+    const token = localStorage.getItem("login_token");
+    fetch(`${config.api}/user/cart`, {
+      method: "GET",
+      headers: {
+        Authorization: token,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        dispatch(cartInfo(res));
+      });
+  }, [dispatch]);
 
-  // body: JSON.stringify({
-  //       package_id: packageId,
-  //       product_count: userCount,
-  //     }),
+  const deleteCart = (idx) => {
+    const token = localStorage.getItem("login_token");
+    fetch(`${config.api}/user/cart`, {
+      method: "DELETE",
+      headers: {
+        Authorization: token,
+      },
+      body: JSON.stringify({
+        cart_id: productInfo.cart && productInfo.cart[idx].cart_id,
+      }),
+    }).then((res) => {
+      console.log(res);
+    });
+  };
 
   const openCart = () => {
     const token = localStorage.getItem("login_token");
-    fetch("http://192.168.200.123:8000/user/cart", {
+    fetch(`${config.api}/user/cart`, {
       method: "GET",
       headers: {
         Authorization: token,
@@ -53,19 +59,9 @@ function CartModal() {
       });
   };
 
-  // if (window.performance) {
-  //   if (performance.navigation.type === 1) {
-  //     openCart();
-  //     window.onbeforeunload = () => {
-  //       console.log("하이");
-  //     };
-  //   }
-  // }
-
-  console.log(productInfo);
   return (
     <>
-      <Container>
+      <Container show={show}>
         <CartContainer>
           <CartBox>
             <CartBoxHeader>
@@ -75,10 +71,10 @@ function CartModal() {
               </ViewCart>
             </CartBoxHeader>
             <EmptyCart>Your cart is currently empty</EmptyCart>
-            {productInfo.cart?.map((v) => {
+            {productInfo.cart?.map((v, idx) => {
               return (
                 <>
-                  <ItemContainer>
+                  <ItemContainer key={idx}>
                     <ItemImage src={v.product_image} />
                     <ItemBox>
                       <ItemTitle>{v.product_name}</ItemTitle>
@@ -88,9 +84,15 @@ function CartModal() {
                         <CountInput>{v.count}</CountInput>
                         <AddMinor>+</AddMinor>
                       </CartCount>
-                      <TotalPrice>$159.60</TotalPrice>
+                      <TotalPrice>${v.price * v.count}</TotalPrice>
                     </ItemBox>
-                    <Close />
+                    <Close
+                      onClick={() => {
+                        deleteCart(idx);
+                        openCart();
+                        openCart();
+                      }}
+                    />
                   </ItemContainer>
                 </>
               );
@@ -107,7 +109,7 @@ function CartModal() {
                 I agree to the<Link to="#">End User License Agreement</Link>
               </TextAgree>
             </AgreeBox>
-            <CheckOutBtn>go to checkout</CheckOutBtn>
+            <CheckOutBtn onClick={() => openCart()}>go to checkout</CheckOutBtn>
           </CartFooter>
         </CartContainer>
       </Container>
@@ -119,12 +121,15 @@ export default CartModal;
 
 const Container = styled.div`
   position: fixed;
+  top: 130px;
   width: 510px;
   height: calc(100vh - 100px);
   right: 0;
   padding: 30px 43px;
   background-color: #333;
+  transition-duration: 1s;
   z-index: 2;
+  right: ${({ show }) => (!show ? -510 : 0)}px;
 `;
 
 const CartContainer = styled.div`
@@ -135,6 +140,11 @@ const CartContainer = styled.div`
 const CartBox = styled.div`
   height: calc(100vh - 370px);
   padding-bottom: 70px;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const CartBoxHeader = styled.div`

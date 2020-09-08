@@ -5,6 +5,12 @@ export const addUsers = (count) => {
   };
 };
 
+export const plusUsers = (count) => {
+  return {
+    type: "ADD_USERS",
+  };
+};
+
 export const productId = (id) => {
   return {
     type: "PRODUCT_ID",

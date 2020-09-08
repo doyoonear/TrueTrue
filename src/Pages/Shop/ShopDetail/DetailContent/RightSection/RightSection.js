@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import PackageList from "./PackageList";
 import NumberOfUsers from "./NumberOfUsers";
 import Requirements from "./Requirements";
+import { config } from "../../../../../config";
+
 import GlobalStyles, {
   theme,
   font,
@@ -24,8 +26,6 @@ function RightSection({ text }) {
   const [indexUsers, setIndexUsers] = useState(-1);
   const [multiply, setMultiply] = useState(1);
   const [compare, setCompare] = useState("price");
-  // const [cartData, setCartData] = useState({});
-
   const userCount = useSelector((store) => store.userCountReducer);
   const packageId = useSelector((store) => store.productCountReducer);
   const productInfo = useSelector((store) => store.cartInfoReducer);
@@ -66,7 +66,7 @@ function RightSection({ text }) {
 
   const createCart = () => {
     const token = localStorage.getItem("login_token");
-    fetch("http://192.168.200.123:8000/user/cart", {
+    fetch(`${config.api}/user/cart`, {
       method: "POST",
       headers: {
         Authorization: token,
@@ -89,7 +89,7 @@ function RightSection({ text }) {
 
   const openCart = () => {
     const token = localStorage.getItem("login_token");
-    fetch("http://192.168.200.123:8000/user/cart", {
+    fetch(`${config.api}/user/cart`, {
       method: "GET",
       headers: {
         Authorization: token,
@@ -108,7 +108,11 @@ function RightSection({ text }) {
       <Sidebox>
         <SideTitle>Buying Choices</SideTitle>
         <Basket>
-          <ChoosePackage onClick={showList} opacity={onList}>
+          <ChoosePackage
+            onClick={showList}
+            opacity={onList}
+            show={text.package && text.package[0].name === "" ? true : false}
+          >
             {packageSelect}
           </ChoosePackage>
           <PackageList
@@ -133,6 +137,7 @@ function RightSection({ text }) {
           submitUsers={onChangeUser}
           onClick={() => {
             createCart();
+            openCart();
             openCart();
           }}
         >
@@ -224,6 +229,7 @@ const ChoosePackage = styled.div`
   ${font("Spartan", 13, 600)};
   border: 1px solid ${theme.mediumGrey};
   opacity: ${({ opacity }) => (opacity ? 0.2 : "")};
+  display: ${({ show }) => (show ? "none" : "block")};
 
   &::before {
     content: "";

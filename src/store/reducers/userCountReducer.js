@@ -3,7 +3,7 @@ const userCountReducer = (state = "", action) => {
     case "COUNT_USERS":
       return action.users;
     case "ADD_USERS":
-      return action.users;
+      return { count: action.users + 1 };
     case "SUBTRACT_USERS":
       return action.users;
     default:
