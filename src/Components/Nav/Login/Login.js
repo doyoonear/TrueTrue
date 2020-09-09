@@ -9,26 +9,21 @@ import GlobalStyles, {
 import CustomerLogin from "./CustomerLogin/CustomerLogin";
 import RecoverPassword from "./RecoverPassword/RecoverPassword";
 
-function Login() {
+function Login({ loginActive, loginToggle }) {
   const [recover, setRecover] = useState(false);
-  const [hide, setHide] = useState(false);
 
   const recoverToggle = () => {
     setRecover(!recover);
   };
 
-  const hideLogin = () => {
-    setHide(!hide);
-  };
-
   return (
-    <LoginBox hide={hide}>
+    <LoginBox loginActive={loginActive}>
       <LoginContainer>
         <LoginForm>
           {!recover && <CustomerLogin recoverToggle={recoverToggle} />}
           {recover && <RecoverPassword recoverToggle={recoverToggle} />}
         </LoginForm>
-        <CloseBtn onClick={hideLogin}>
+        <CloseBtn onClick={loginToggle}>
           <img
             alt="close"
             src="//cdn.shopify.com/s/files/1/0989/0116/t/21/assets/Close_Button_2x.png?v=9904816089437141646"
@@ -44,8 +39,9 @@ export default Login;
 const LoginBox = styled.div`
   position: relative;
   padding: 55px 30px 52px;
+  height: 321.3px;
   background-color: ${theme.darkGrey};
-  top: ${(props) => (props.hide ? "-361.3px" : "0px")};
+  top: ${(props) => (props.loginActive ? "0px" : "-361.3px")};
   transition-duration: 1s;
 
   * {

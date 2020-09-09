@@ -1,61 +1,78 @@
-import React, { Component, useState } from "react";
-import styled, { keyframes } from "styled-components";
+import React, { useState } from "react";
 import NavBanner from "./Nav_Components/NavBanner";
 import NavDropDown from "./Nav_Components/NavDropDown";
-import {
-  MoveCenter,
-  FlexRow,
-  FlexCenter,
-  font,
-  theme,
-} from "../../Styles/GlobalStyles";
+import Login from "./Login/Login";
+import styled from "styled-components";
+import { MoveCenter, font, theme } from "../../Styles/GlobalStyles";
+
+const navCategory = ["FREE STUFF", "ABOUT", "BLOG", "GALLERY", "SUPPORT"];
 
 function Nav() {
   const [visible, setVisible] = useState(true);
-  const [open, setOpen] = useState(false);
+  const [hideDropDown, setHideDropDown] = useState(true);
+  const [loginActive, setLoginActive] = useState(false);
   const [cartActive, setCartActive] = useState(false);
 
   const visibleToggle = () => {
     setVisible(!visible);
   };
 
-  const data = ["FREE STUFF", "ABOUT", "BLOG", "GALLERY", "SUPPORT"];
+  const hideDropDownFunc = () => {
+    setHideDropDown(!hideDropDown);
+  };
+
+  const loginToggle = () => {
+    setLoginActive(!loginActive);
+  };
 
   return (
     <nav>
-      <NavWhole>
-        {visible && <NavBanner visibleToggle={visibleToggle} />}
-        <NavText open={open} visible={visible}>
-          <li>
-            <span onClick={() => setOpen(!open)}>
-              SHOP{" "}
+      <NavWhole loginActive={loginActive}>
+        <Login loginActive={loginActive} loginToggle={loginToggle} />
+        {visible && (
+          <NavBanner
+            hideDropDown={hideDropDown}
+            visibleToggle={visibleToggle}
+          />
+        )}
+        <NavBar>
+          <MainLogo
+            alt="logo"
+            src={
+              hideDropDown
+                ? "/Images/main_images/logo_dark.webp"
+                : "//cdn.shopify.com/s/files/1/0989/0116/t/21/assets/TGTS_Main_Logo_2x-Menu-exp.png?v=1732527511903274378"
+            }
+          ></MainLogo>
+          <NavText hideDropDown={hideDropDown} visible={visible}>
+            <li>
+              <span onClick={hideDropDownFunc}>SHOP </span>
               <DownArrow
+                alt="down arrow"
                 src={
-                  open
-                    ? "/Images/main_images/down_white.webp"
-                    : "/Images/main_images/down.webp"
+                  hideDropDown
+                    ? "//cdn.shopify.com/s/files/1/0989/0116/t/21/assets/down.png?v=8533168883242876854"
+                    : "/Images/main_images/down_white.webp"
                 }
               />
-            </span>
-          </li>
-          {data.map((el) => {
-            return (
-              <li>
-                <span>{el}</span>
-              </li>
-            );
-          })}
-        </NavText>
-        <NavBar>
-          <img alt="logo" src="/Images/main_images/logo_dark.webp" />
+            </li>
+            {navCategory.map((el, idx) => {
+              return (
+                <li>
+                  <span key={idx}>{el}</span>
+                </li>
+              );
+            })}
+          </NavText>
           <Icons>
             <img alt="search icon" src="/Images/main_images/search_icon.webp" />
             <p>$USD</p>
             <img
+              onClick={loginToggle}
               alt="account icon"
               src="/Images/main_images/account_icon.svg"
             />
-            <Cart
+            <CartIcon
               src={
                 cartActive
                   ? "/Images/main_images/cart_active.webp"
@@ -64,7 +81,11 @@ function Nav() {
             />
           </Icons>
         </NavBar>
-        {open && <NavDropDown />}
+        <NavDropDown
+          hideDropDown={hideDropDown}
+          hideDropDownFunc={hideDropDownFunc}
+          visible={visible}
+        />
       </NavWhole>
     </nav>
   );
@@ -73,20 +94,32 @@ function Nav() {
 const NavWhole = styled.nav`
   position: fixed;
   width: 100%;
-  height: 100%;
-  top: 0;
+  top: ${({ loginActive }) => (loginActive ? "0px" : "-321.3px")}};
+  transition-duration: 1s;
+  background-color: ${theme.darkGrey};
+  z-index: 900;
+`;
+
+const NavBar = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  background-color: ${theme.darkBeige};
+`;
+
+const MainLogo = styled.img`
+  width: 110px;
+  padding-left: 35px;
+  z-index: 900;
 `;
 
 const NavText = styled.div`
-  position: absolute;
   display: flex;
-  ${FlexRow};
-  ${MoveCenter};
-  top: ${({ visible }) => (visible ? "85px" : "35px")};
-  left: 25%;
-  color: ${(props) => (props.open ? theme.lightGrey : theme.darkGrey)};
-  ${font("Spartan", 13, 700)};
-  z-index: 10;
+  color: ${({ hideDropDown }) =>
+    hideDropDown ? theme.darkGrey : theme.lightGrey};
+  ${font("Spartan", 12, 700)};
+  z-index: 900;
   cursor: default;
 
   li {
@@ -98,46 +131,30 @@ const NavText = styled.div`
     span {
       &:hover {
         padding: 3px 0;
-        margin: -4px 0;
-        border-top: 1px solid ${theme.darkGrey};
-        border-bottom: 1px solid ${theme.darkGrey};
+        margin: -6px 0;
+        border-top: 2px solid ${theme.darkGrey};
+        border-bottom: 2px solid ${theme.darkGrey};
+        color: ${({ hideDropDown }) =>
+          hideDropDown ? theme.darkGrey : "white"};
       }
     }
   }
 `;
 
 const DownArrow = styled.img`
-  top: 12%;
-  right: 12%;
-  width: 5px;
+  position: absolute;
+  top: 30%;
+  right: 15%;
+  width: 6px;
   height: 5px;
-`;
-
-const Cart = styled.img`
-  margin: 0;
-  width: auto;
-  height: 18px;
-`;
-
-const NavBar = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 9%;
-  background-color: ${theme.darkBeige};
-
-  img {
-    margin-left: 25px;
-    width: 80px;
-  }
 `;
 
 const Icons = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 30px;
-  width: 160px;
+  width: 190px;
+  padding-right: 35px;
 
   div {
     display: flex;
@@ -146,7 +163,8 @@ const Icons = styled.div`
   }
 
   p {
-    ${font("Spartan", 7.5, 700)};
+    color: ${theme.mediumGrey};
+    ${font("Spartan", 13, 700)};
     letter-spacing: calc(1rem / 20);
     text-align: center;
   }
@@ -154,8 +172,14 @@ const Icons = styled.div`
   img {
     margin: 0;
     width: auto;
-    height: 18px;
+    height: 20px;
   }
+`;
+
+const CartIcon = styled.img`
+  margin: 0;
+  width: auto;
+  height: 18px;
 `;
 
 export default Nav;

@@ -9,7 +9,7 @@ import GlobalStyles, {
 
 function RecoverPassword({ recoverToggle }) {
   return (
-    <>
+    <RecoverPasswordBox>
       <TextCenter>Reset your password</TextCenter>
       <FormBox display="flex" justifyContent="center">
         <Input
@@ -26,11 +26,15 @@ function RecoverPassword({ recoverToggle }) {
           </button>
         </ButtonContainer>
       </FormBox>
-    </>
+    </RecoverPasswordBox>
   );
 }
 
 export default RecoverPassword;
+
+const RecoverPasswordBox = styled.div`
+  height: 100%;
+`;
 
 const TextCenter = styled.div`
   width: 100%;

@@ -1,8 +1,7 @@
-import React, { Component, useState } from "react";
-import styled, { keyframes } from "styled-components";
-import NavBanner from "./NavBanner";
-import Category from "../Category";
-import { MoveCenter, font, theme } from "../../../Styles/GlobalStyles";
+import React from "react";
+import Category from "./Category";
+import styled from "styled-components";
+import { font, theme } from "../../../Styles/GlobalStyles";
 
 const category = {
   "For Photoshop": [
@@ -35,62 +34,54 @@ const category = {
   ],
 };
 
-function NavDropDown() {
+function NavDropDown({ hideDropDown, hideDropDownFunc, visible }) {
   return (
-    <DropDown>
-      {Object.keys(category).map((title) => {
-        return <Category title={title} list={category[title]} />;
+    <DropDown hideDropDown={hideDropDown} visible={visible}>
+      {Object.keys(category).map((title, idx) => {
+        return <Category key={idx} title={title} list={category[title]} />;
       })}
+      <CloseDropBtn
+        onClick={hideDropDownFunc}
+        alt="close button"
+        src="/Images/main_images/close.webp"
+      />
     </DropDown>
   );
 }
 
-const moveDown = keyframes`
-  0% {
-    top: -400px;
-  100% {
-    top: -75px;
-  }
-`;
-
-const moveUp = keyframes`
-  0% {
-    top: -75px;
-  100% {
-    top: -400px;
-  }
-`;
-
 const DropDown = styled.div`
-  position: relative;
+  position: fixed;
   display: flex;
   justify-content: center;
-  animation: ${moveDown} 1s ease-out;
-  animation-direction: alternate;
-  animation-fill-mode: forwards;
-  top: -75px;
+  transition-duration: 1s;
   padding-top: 80px;
   width: 100vw;
-  height: 250px;
+  height: ${({ visible }) => (visible ? "360px" : "330px")};
   background-color: ${theme.darkGrey};
-  z-index: 2;
+  z-index: 800;
+  top: ${({ visible, hideDropDown }) =>
+    !hideDropDown ? 0 : visible ? -400 : -450}px;
+
+  ul {
+    margin-top: ${({ visible }) => (visible ? "30px" : "0px")};
+  }
 
   li {
-    width: 120px;
-    height: 18px;
+    width: 148px;
+    height: 25px;
     color: ${theme.lightGrey};
-    ${font("Spartan", 13, 500)};
+    ${font("Inconsolata", 13, 500)};
     letter-spacing: calc(1rem / 20);
     cursor: default;
 
     &:first-child {
       display: flex;
       align-items: center;
-      width: 105px;
-      height: 35px;
+      width: 130px;
+      height: 43px;
       border-top: 1px solid ${theme.lightGrey};
       border-bottom: 1px solid ${theme.lightGrey};
-      ${font("Spartan", 13, 700)};
+      ${font("Spartan", 12, 600)};
 
       &:hover {
         color: white;
@@ -99,14 +90,23 @@ const DropDown = styled.div`
 
     &:nth-child(2) {
       padding-top: 15px;
+      margin-bottom: 5px;
       height: 35px;
     }
 
     span:hover {
-      color: white;
       border-bottom: 1px solid white;
+      color: white;
     }
   }
+`;
+
+const CloseDropBtn = styled.img`
+  position: absolute;
+  top: 60px;
+  right: 35px;
+  width: 10px;
+  height: 10px;
 `;
 
 export default NavDropDown;

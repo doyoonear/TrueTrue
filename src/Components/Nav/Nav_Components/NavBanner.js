@@ -1,17 +1,11 @@
-import React, { Component, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import {
-  MoveCenter,
-  FlexRow,
-  FlexCenter,
-  font,
-  theme,
-} from "../../../Styles/GlobalStyles";
+import { MoveCenter, font, theme } from "../../../Styles/GlobalStyles";
 
-const NavBanner = ({ visibleToggle }) => {
+const NavBanner = ({ hideDropDown, hideDropDownFunc, visibleToggle }) => {
   return (
     <BannerStyle>
-      <CloseBtn onClick={visibleToggle}>
+      <CloseBtn hideDropDown={hideDropDown} onClick={visibleToggle}>
         <img alt="close button" src="/Images/main_images/close.webp" />
       </CloseBtn>
       <BannerText>
@@ -25,9 +19,9 @@ const NavBanner = ({ visibleToggle }) => {
 const BannerStyle = styled.div`
   position: relative;
   ${MoveCenter};
-  height: 5%;
+  height: 40px;
   background-color: ${theme.darkGrey};
-  z-index: 50;
+  z-index: 900;
 `;
 
 const BannerText = styled.div`
@@ -39,8 +33,8 @@ const BannerText = styled.div`
 
 const CloseBtn = styled.div`
   position: absolute;
-  right: 10px;
-
+  right: 35px;
+  display: ${({ hideDropDown }) => (hideDropDown ? "block" : "none")};
   img {
     width: 10px;
     height: 10px;
