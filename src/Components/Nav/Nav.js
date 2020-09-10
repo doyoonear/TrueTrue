@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import NavBanner from "./Nav_Components/NavBanner";
 import NavDropDown from "./Nav_Components/NavDropDown";
 import Login from "./Login/Login";
+import Search from "./Search/Search";
 import styled from "styled-components";
 import { MoveCenter, font, theme } from "../../Styles/GlobalStyles";
 
@@ -12,6 +13,7 @@ function Nav() {
   const [hideDropDown, setHideDropDown] = useState(true);
   const [loginActive, setLoginActive] = useState(false);
   const [cartActive, setCartActive] = useState(false);
+  const [searchActive, setSearchActive] = useState(false);
 
   const visibleToggle = () => {
     setVisible(!visible);
@@ -25,8 +27,13 @@ function Nav() {
     setLoginActive(!loginActive);
   };
 
+  const searchToggle = () => {
+    setSearchActive(!searchActive);
+  };
+
   return (
     <nav>
+      {/* <Search searchActive={searchActive} /> */}
       <NavWhole loginActive={loginActive}>
         <Login loginActive={loginActive} loginToggle={loginToggle} />
         {visible && (
@@ -65,7 +72,11 @@ function Nav() {
             })}
           </NavText>
           <Icons>
-            <img alt="search icon" src="/Images/main_images/search_icon.webp" />
+            <img
+              onClick={searchToggle}
+              alt="search icon"
+              src="/Images/main_images/search_icon.webp"
+            />
             <p>$USD</p>
             <img
               onClick={loginToggle}

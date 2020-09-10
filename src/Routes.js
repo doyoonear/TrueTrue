@@ -9,6 +9,8 @@ import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 import Nav from "./Components/Nav/Nav";
 import ProductCard from "./Components/ProductCard/ProductCard";
 import ShopList from "./Pages/Shop/ShopList/ShopList";
+import Search from "./Components/Nav/Search/Search";
+import SearchResult from "./Components/Nav/Search/SearchResult";
 
 class Routes extends React.Component {
   render() {
@@ -30,6 +32,8 @@ class Routes extends React.Component {
             component={ShopDetail}
           />
           <Route exact path="/nav" component={Nav} />
+          <Route exact path="/search" component={Search} />
+          <Route exact path="/search/:result" component={SearchResult} />
         </Switch>
       </Router>
     );
