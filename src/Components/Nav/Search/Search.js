@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { font, theme } from "../../../Styles/GlobalStyles";
 
 function Search(props) {
-  const [searchActive, setSearchActive] = useState(true);
   const [searchValue, setSearchValue] = useState("");
 
   const getInputVal = (e) => {
@@ -13,11 +12,11 @@ function Search(props) {
 
   return (
     <div>
-      <SearchWhole>
+      <SearchWhole searchActive={props.searchActive}>
         <MainLogo
           alt="main logo"
           src={
-            searchActive
+            props.searchActive
               ? "//cdn.shopify.com/s/files/1/0989/0116/t/21/assets/TGTS_Main_Logo_2x-Menu-exp.png?v=1732527511903274378"
               : "/Images/main_images/logo_dark.webp"
           }
@@ -33,7 +32,11 @@ function Search(props) {
             src="//cdn.shopify.com/s/files/1/0989/0116/t/21/assets/search-top.png?v=4847803783439352792"
           />
         </SearchContainer>
-        <SearchDelBtn alt="close button" src="/Images/main_images/close.webp" />
+        <SearchDelBtn
+          onClick={props.searchToggle}
+          alt="close button"
+          src="/Images/main_images/close.webp"
+        />
       </SearchWhole>
     </div>
   );
@@ -44,16 +47,17 @@ const SearchWhole = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  top: 0;
+  top: ${({ searchActive }) => (searchActive ? "0px" : "-130px")};
+  transition-duration: 1s;
   width: 100%;
-  height: 105px;
+  height: 130px;
   background-color: ${theme.darkGrey};
   z-index: 990;
 `;
 
 const MainLogo = styled.img`
-  width: 10px;
-  padding-left: 35px;
+  width: 155px;
+  padding-left: 55px;
 `;
 
 const SearchContainer = styled.div`
@@ -65,7 +69,7 @@ const SearchContainer = styled.div`
 
 const SearchBox = styled.input`
   display: flex;
-  width: 500px;
+  width: 800px;
   height: 100%;
   ${font("Spartan", 20, 700)};
   text-align: right;
@@ -76,6 +80,7 @@ const SearchBox = styled.input`
 const SearchIcon = styled.img`
   width: auto;
   height: 25px;
+  margin-left: 80px;
 `;
 
 const SearchDelBtn = styled.img`

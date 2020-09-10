@@ -7,6 +7,7 @@ import BundleMenu from "./Components/Submenu/BundleMenu";
 import BlogMenu from "./Components/Submenu/BlogMenu";
 import Slider from "./Components/Slider";
 import Border from "./Border";
+import { config } from "../../config";
 import { font, theme } from "../../Styles/GlobalStyles";
 
 const sponsorLogos = [
@@ -35,7 +36,9 @@ function MainP() {
 
   useEffect(() => {
     fetch(
-      `http://192.168.200.198:8000/product/products?category=PhotoShop&limit=${LIMIT}&offset=${
+      `${
+        config.api
+      }/product/products?category=PhotoShop&limit=${LIMIT}&offset=${
         offset * LIMIT
       }`
     )

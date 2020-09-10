@@ -2,7 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { MoveCenter, font, theme } from "../../../Styles/GlobalStyles";
 
-const NavBanner = ({ hideDropDown, hideDropDownFunc, visibleToggle }) => {
+const NavBanner = ({
+  hideDropDown,
+  hideDropDownFunc,
+  visibleToggle,
+  visible,
+}) => {
   return (
     <BannerStyle>
       <CloseBtn hideDropDown={hideDropDown} onClick={visibleToggle}>
