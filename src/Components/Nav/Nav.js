@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import NavBanner from "./Nav_Components/NavBanner";
 import NavDropDown from "./Nav_Components/NavDropDown";
 import Login from "./Login/Login";
@@ -33,24 +34,29 @@ function Nav() {
 
   return (
     <nav>
-      {/* <Search searchActive={searchActive} /> */}
+      <Search searchActive={searchActive} searchToggle={searchToggle} />
       <NavWhole loginActive={loginActive}>
         <Login loginActive={loginActive} loginToggle={loginToggle} />
         {visible && (
           <NavBanner
+            visible={visible}
             hideDropDown={hideDropDown}
             visibleToggle={visibleToggle}
           />
         )}
         <NavBar>
-          <MainLogo
-            alt="logo"
-            src={
-              hideDropDown
-                ? "/Images/main_images/logo_dark.webp"
-                : "//cdn.shopify.com/s/files/1/0989/0116/t/21/assets/TGTS_Main_Logo_2x-Menu-exp.png?v=1732527511903274378"
-            }
-          ></MainLogo>
+          <Link to="/">
+            <LogoBox>
+              <MainLogo
+                alt="logo"
+                src={
+                  hideDropDown
+                    ? "/Images/main_images/logo_dark.webp"
+                    : "//cdn.shopify.com/s/files/1/0989/0116/t/21/assets/TGTS_Main_Logo_2x-Menu-exp.png?v=1732527511903274378"
+                }
+              />
+            </LogoBox>
+          </Link>
           <NavText hideDropDown={hideDropDown} visible={visible}>
             <li>
               <span onClick={hideDropDownFunc}>SHOP </span>
@@ -119,9 +125,13 @@ const NavBar = styled.div`
   background-color: ${theme.darkBeige};
 `;
 
+const LogoBox = styled.div`
+  width: 220px;
+`;
+
 const MainLogo = styled.img`
-  width: 110px;
-  padding-left: 35px;
+  width: 155px;
+  padding-left: 55px;
   z-index: 900;
 `;
 
@@ -164,8 +174,8 @@ const Icons = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 190px;
-  padding-right: 35px;
+  width: 220px;
+  padding-right: 55px;
 
   div {
     display: flex;
