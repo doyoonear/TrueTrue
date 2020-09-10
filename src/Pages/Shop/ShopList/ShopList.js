@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { config } from "../../../config";
 import ProductCard from "../../../Components/ProductCard/ProductCard";
 import GlobalStyles, {
   MoveCenter,
@@ -14,10 +15,14 @@ function ShopList() {
 
   useEffect(() => {
     // api 가 나오면 사용할 fetch 함수
-    // fetch(
-    //   `http://{config.api}/shoplist?limit=${LIMIT}&offset=${offset * LIMIT}`
-    // )
-    fetch("/Data/ProductCard.json")
+    fetch(
+      `${
+        config.api
+      }/product/products?category=PhotoShop&limit=${LIMIT}&offset=${
+        offset * LIMIT
+      }`
+    )
+      // fetch("/Data/ProductCard.json")
       .then((res) => res.json())
       .then((res) => setProductData(res.data));
   }, [offset]);
